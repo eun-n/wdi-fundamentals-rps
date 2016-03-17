@@ -1,5 +1,6 @@
 var playerWins = 0;
 var computerWins = 0;
+function RPS() {
 	var playerMove = prompt("Do you choose rock, paper, or scissors?");
 	var computerMove = Math.random();
 	if(computerMove < 0.34) {
@@ -9,13 +10,13 @@ var computerWins = 0;
 	} else {
 		computerMove = "scissors";
 	} console.log("Computer: " +computerMove);
-	var getWinner = function(choice1, choice2) {
+	var getWinner = function(playerMove, computerMove) {
 		var winner;
-		if(choice1 === choice2) {
+		if(playerMove === computerMove) {
 			winner = "tie";
 			console.log("It's a tie! The score is " + playerWins + " to " + computerWins + ".");
-		} else if (choice1 == "rock") {
-			if(choice2 == "scissors") {
+		} else if (playerMove == "rock") {
+			if(computerMove == "scissors") {
 				winner = "player";
 				playerWins = playerWins + 1;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
@@ -24,8 +25,8 @@ var computerWins = 0;
 				computerWins = computerWins + 1;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
 			}
-		} else if (choice1 == "paper") {
-			if(choice2 =="rock") {
+		} else if (playerMove == "paper") {
+			if(computerMove =="rock") {
 				winner = "player";
 				playerWins = playerWins + 1;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
@@ -34,8 +35,8 @@ var computerWins = 0;
 				computerWins = computerWins + 1;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
 			}
-		} else if (choice1 == "scissors:") {
-			if(choice2 == "paper") {
+		} else if (playerMove == "scissors:") {
+			if(computerMove == "paper") {
 				winner = "player";
 				playerWins = playerWins + 1;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
@@ -45,7 +46,7 @@ var computerWins = 0;
 				console.log(winner + " won! The score is " + playerWins + " to " + computerWins + ".");
 			}
 		}
-	};
+	};}
 	do {
-      getWinner(playerMove, computerMove);
-    } while (playerWins <5 || computerWins <5);
+      RPS();
+    } while (playerWins <5 && computerWins <5);
